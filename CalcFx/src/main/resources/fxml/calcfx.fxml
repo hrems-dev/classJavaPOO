@@ -45,7 +45,7 @@
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnDiv" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                         <Button fx:id="btnDiv" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
@@ -61,7 +61,7 @@
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnMult" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="*" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                         <Button fx:id="btnMult" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="*" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
@@ -77,7 +77,7 @@
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnRes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="-" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                         <Button fx:id="btnRes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="-" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
@@ -85,11 +85,11 @@
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnBorrar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="c" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                         <Button fx:id="btnBorrar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="c" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnIgual" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="=" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                         <Button fx:id="btnIgual" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="=" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
@@ -104,10 +104,13 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <TableView layoutX="35.0" layoutY="37.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                  <TableView fx:id="tableView" layoutX="5.0" layoutY="7.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="7.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="num1x" prefWidth="75.0" text="Num 1" />
+                      <TableColumn fx:id="num2x" prefWidth="75.0" text="Num2" />
+                        <TableColumn fx:id="oper" prefWidth="75.0" text="Operator" />
+                        <TableColumn fx:id="result" prefWidth="75.0" text="Result" />
+                        <TableColumn fx:id="opcionesx" prefWidth="75.0" text="opciones" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
