@@ -27,7 +27,7 @@ public class CalcRepoSql {
                 calcTO.setNum2(rs.getString("num2"));
                 calcTO.setOperator(rs.getString("operador").charAt(0));
                 calcTO.setResultado(rs.getString("resultado"));
-
+                calcTO.setId(rs.getInt("id"));
                 lista.add(calcTO);
                         /*CalcTO.builder()
                         .id(rs.getInt("id"))
@@ -52,6 +52,26 @@ public class CalcRepoSql {
             System.err.println("Error: "+e.getMessage());
         }
         return result;
+    }
+    public boolean eliminarentidad(CalcTO c){
+        int result=0;
+        try{
+            ps=connection.prepareStatement("DELETE FROM calculadora WHERE id="+c.getId());
+            ps.executeUpdate();
+        }catch (Exception e){
+            System.err.println("error"+ e.getMessage());
+        }
+        return  result==1;
+    }
+    public boolean actualizarEntidad(CalcTO c, int id){
+        int result=0;
+        try{
+            ps=connection.prepareStatement("UPDATE calculadora set num1="+c.getNum1()+", num2="+c.getNum2()+", operador='"+c.getOperator()+"', resultado="+c.getResultado()+" WHERE id="+id);
+            result=ps.executeUpdate();
+        }catch (Exception e){
+            System.err.println("error" + e.getMessage());
+        }
+        return result==1;
     }
     public int maxId() {
         int i=0;

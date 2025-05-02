@@ -42,9 +42,9 @@ List<CalcTO>lista;
     @FXML
     TableColumn<CalcTO, String>num2x;
     @FXML
-    TableColumn<CalcTO, Character>oper;
+    TableColumn<CalcTO, Character>operX;
     @FXML
-    TableColumn<CalcTO, String>result;
+    TableColumn<CalcTO, String>resultX;
     @FXML
     TableColumn<CalcTO,Void> opcionesx;
     @FXML
@@ -94,7 +94,8 @@ List<CalcTO>lista;
             to.setOperator(operador.charAt(0));
             to.setResultado(String.valueOf(resultado));
             if(indexID!=-1){
-                serviceI.update(to,indexID);
+                //serviceI.update(to,indexID);
+                calcRepoSQl.actualizarEntidad(to, indexID);
             }else{
                 calcRepoSQl.guardarEntidad(to);
                // serviceI.save(to);
@@ -116,11 +117,11 @@ List<CalcTO>lista;
         num2x.setCellValueFactory(new PropertyValueFactory<CalcTO,String>("num2"));
         num2x.setCellFactory(TextFieldTableCell.<CalcTO>forTableColumn());
 
-        oper.setCellValueFactory(new PropertyValueFactory<>("operador"));
-        oper.setCellFactory(ComboBoxTableCell.<CalcTO,Character>forTableColumn('+','-','/','*'));
+        operX.setCellValueFactory(new PropertyValueFactory<>("operator"));
+        operX.setCellFactory(ComboBoxTableCell.<CalcTO,Character>forTableColumn('+','-','/','*'));
 
-        num2x.setCellValueFactory(new PropertyValueFactory<CalcTO,String>("num2"));
-        num2x.setCellFactory(TextFieldTableCell.<CalcTO>forTableColumn());
+        resultX.setCellValueFactory(new PropertyValueFactory<CalcTO,String>("resultado"));
+        resultX.setCellFactory(TextFieldTableCell.<CalcTO>forTableColumn());
         addActionButtonsToTable();
         //datos= FXCollections.observableArrayList(lista);
         datos= FXCollections.observableArrayList(calcRepoSQl.listarEntidad());
@@ -136,7 +137,7 @@ List<CalcTO>lista;
                 editButton.getStyleClass().setAll("btn", "btn-success");
                 editButton.setOnAction(event -> {
                     CalcTO cal = getTableView().getItems().get(getIndex());
-                    editOperCalc(cal, getIndex());
+                    editOperCalc(cal, cal.getId());
                 });
                 deleteButton.getStyleClass().setAll("btn", "btn-danger");
                 deleteButton.setOnAction(event -> {
@@ -194,7 +195,7 @@ List<CalcTO>lista;
 
 
                  case "btnBorrar":{txtResultado.setText("");}break;
-                 case "btnIgual":{calcularResultado(); }break;
+                 case "res":{calcularResultado(); }break;
                  default: {}break;
              }
          }

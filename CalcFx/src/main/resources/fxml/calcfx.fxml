@@ -89,7 +89,7 @@
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
-                         <Button fx:id="btnIgual" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="=" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                         <Button fx:id="res" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#controlClick" text="=" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                            </font></Button>
@@ -108,8 +108,8 @@
                     <columns>
                       <TableColumn fx:id="num1x" prefWidth="75.0" text="Num 1" />
                       <TableColumn fx:id="num2x" prefWidth="75.0" text="Num2" />
-                        <TableColumn fx:id="oper" prefWidth="75.0" text="Operator" />
-                        <TableColumn fx:id="result" prefWidth="75.0" text="Result" />
+                        <TableColumn fx:id="operX" prefWidth="75.0" text="Operator" />
+                        <TableColumn fx:id="resultX" prefWidth="75.0" text="Result" />
                         <TableColumn fx:id="opcionesx" prefWidth="75.0" text="opciones" />
                     </columns>
                   </TableView>
